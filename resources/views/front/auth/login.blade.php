@@ -52,7 +52,7 @@
                    placeholder="{{ trans( 'main.signin.pin' ) }}" name="pin"/></div>
         <div class="form-actions text-center">
             <button type="submit" class="btn green uppercase">{{ trans( 'main.signin.button' ) }}</button>
-            <!--<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>-->
+            <a href="javascript:" id="forget-password" class="forget-password">Forgot Password?</a>
         </div>
         <div class="create-account">
             <p>
@@ -62,17 +62,18 @@
     </form>
     <!-- END LOGIN FORM -->
     <!-- BEGIN FORGOT PASSWORD FORM -->
-<!--<form class="forget-form" action="{{ url( 'password/email' ) }}" method="post">
-            <h3 class="font-green">Forget Password ?</h3>
-            <p> Enter your e-mail address below to reset your password. </p>
-            {!! csrf_field() !!}
+    <form class="forget-form" action="{{ url( 'password/email' ) }}" method="post">
+        <h3 class="font-green">Forget Password ?</h3>
+        <p> Enter your e-mail address below to reset your password. </p>
+        {!! csrf_field() !!}
         <div class="form-group">
-            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" /> </div>
+            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email"
+                   name="email"/></div>
         <div class="form-actions">
             <button type="button" id="back-btn" class="btn btn-default">Back</button>
             <button type="submit" class="btn btn-success uppercase pull-right">Submit</button>
         </div>
-    </form>-->
+    </form>
     <!-- END FORGOT PASSWORD FORM -->
     <!-- BEGIN REGISTRATION FORM -->
     <form class="register-form" action="{{ url( 'auth/register' ) }}" method="post">
