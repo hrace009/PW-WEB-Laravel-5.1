@@ -70,3 +70,6 @@ php artisan key:generate
 If you receive any other errors please create an [issue](https://github.com/huludini/pw-web/issues).
 
 **Note:** This project is no longer supported, however I will still look at pull requests if you'd like to attempt a fix.
+
+**Credits:**
+[tomirons](https://github.com/tomirons)
