@@ -162,8 +162,7 @@ return [
         GrahamCampbell\GitHub\GitHubServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Laravolt\Avatar\ServiceProvider::class,
-        Jenssegers\Agent\AgentServiceProvider::class
-
+        Jenssegers\Agent\AgentServiceProvider::class,
     ],
 
     /*

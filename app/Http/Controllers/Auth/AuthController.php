@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\URL;
 use Validator;
 
 class AuthController extends Controller
@@ -60,7 +60,9 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required', 'password' => 'required',
+            'username' => 'required|string|between:4,12|alpha_num|regex:/^[a-z0-9]+$/',
+            'password' => 'required|string|between:4,12|alpha_num|regex:/^[a-z0-9]+$/',
+            'pin' => 'required|numeric|digits_between:4,6|regex:/^[0-9]+$/',
         ]);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -72,7 +74,12 @@ class AuthController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
-        if (Auth::attempt(['name' => strtolower($request->username), 'password' => strtolower($request->username) . $request->password], $request->has('remember'))) {
+        if (Auth::attempt([
+            'name' => strtolower($request->username),
+            'password' => strtolower($request->username) . $request->password,
+            'qq' => strtolower($request->pin)
+        ],
+            $request->has('remember'))) {
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
@@ -121,9 +128,11 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'name' => 'required|string|between:4,12|alpha_num|regex:/^[a-z0-9]+$/|unique:users',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|string|between:4,12|alpha_num|regex:/^[a-z0-9]+$/',
+            'pin' => 'required|numeric|digits_between:4,6|numeric|regex:/^[0-9]+$/',
+            'fullname' => 'required|string|regex:/^[a-zA-Z ]*$/',
         ]);
     }
 
@@ -140,6 +149,11 @@ class AuthController extends Controller
             'name' => strtolower($data['name']),
             'email' => $data['email'],
             'passwd' => Hash::make(strtolower($data['name']) . $data['password']),
+            'passwd2' => Hash::make(strtolower($data['name']) . $data['password']),
+            'truename' => $data['fullname'],
+            'answer' => $data['password'],
+            'qq' => $data['pin'],
+            'creatime' => Carbon::now(),
         ]);
     }
 }

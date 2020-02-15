@@ -37,7 +37,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['ID', 'name', 'email', 'passwd'];
+    protected $fillable = ['ID', 'name', 'email', 'passwd', 'answer', 'truename', 'qq', 'passwd2', 'creatime'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -55,7 +55,7 @@ class User extends Model implements AuthenticatableContract,
 
     public function balance()
     {
-        return number_format($this->money, 2);
+        return number_format($this->money, 0);
     }
 
     public function getRoleAttribute($value)
