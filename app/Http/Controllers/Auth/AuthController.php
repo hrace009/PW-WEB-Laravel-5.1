@@ -47,7 +47,7 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        pagetitle([trans('main.login'), settings('server_name')]);
+        pagetitle([trans('main.signin.title'), settings('server_name')]);
         return view('front.auth.login');
     }
 
@@ -104,6 +104,7 @@ class AuthController extends Controller
      */
     public function getRegister()
     {
+        pagetitle([trans('main.signup.title'), settings('server_name')]);
         return view('front.auth.register');
     }
 
@@ -165,5 +166,16 @@ class AuthController extends Controller
             'qq' => $data['pin'],
             'creatime' => Carbon::now(),
         ]);
+    }
+
+    /**
+     * Display the form to request a password reset link.
+     *
+     * @return Response
+     */
+    public function getForgot()
+    {
+        pagetitle([trans('main.forgot.title'), settings('server_name')]);
+        return view('front.auth.email');
     }
 }

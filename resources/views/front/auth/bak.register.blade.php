@@ -1,7 +1,8 @@
 @extends('front.auth.master')
 @section('content')
-    <form class="login-form" action="{{ url( 'auth/register' ) }}" method="post">
-        <h3 class="form-title font-green">{{ trans( 'main.signup.title' ) }}</h3>
+    <form class="register-form" action="{{ url( 'auth/register' ) }}" method="post">
+        <h3 class="font-green">{{ trans( 'main.signup.title' ) }}</h3>
+        <p class="hint"> {{ trans( 'main.signup.info' ) }} </p>
         @if ( $errors->any() )
             <div class="alert alert-danger">
                 @foreach( $errors->all() as $e )
@@ -38,19 +39,12 @@
         <div class="form-group margin-top-20 margin-bottom-20">
             <div id="register_tnc_error"></div>
         </div>
-        <div class="form-actions text-center">
+        <div class="form-actions">
+            <a id="register-back-btn" href="{{ url('/') }}"
+               class="btn btn-default">{{ trans( 'main.signup.back' ) }}</a>
             <button type="submit" id="register-submit-btn"
-                    class="btn btn-success uppercase">{{ trans( 'main.signup.submit' ) }}</button>
-        </div>
-        <div class="create-account">
-            <p>
-                <a href="{{ url('auth/login') }}" id="register-btn"
-                   class="uppercase">{{ trans( 'main.signin.title' ) }}</a>
-            </p>
-            <p>
-                <a href="{{ url('/') }}" id="register-btn"
-                   class="uppercase">{{ trans( 'main.back' ) }}</a>
-            </p>
+                    class="btn btn-success uppercase pull-right">{{ trans( 'main.signup.submit' ) }}</button>
         </div>
     </form>
+
 @endsection

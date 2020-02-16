@@ -13,6 +13,7 @@ return [
 
     'home' => 'Home',
     'dashboard' => 'Dashboard',
+    'back' => 'Back',
     'apps' => [
         'news' => 'News',
         'shop' => 'Shop',
@@ -68,6 +69,12 @@ return [
         'confirm' => 'Re-type Your Password',
         'submit' => 'Submit',
         'back' => 'Back',
+    ],
+    'forgot' => [
+        'title' => 'Forgot Password ?',
+        'info' => 'Enter your e-mail address below to reset your password.',
+        'email' => 'Email',
+        'sendlink' => 'Send reset password link!',
     ],
 
     'char_list_error' => 'We can\'t retrieve your characters, please try again later.',

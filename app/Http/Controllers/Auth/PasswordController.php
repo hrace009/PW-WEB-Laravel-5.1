@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class PasswordController extends Controller
 {
@@ -29,6 +31,17 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Display the form to request a password reset link.
+     *
+     * @return Response
+     */
+    public function getEmail()
+    {
+        pagetitle([trans('main.forgot.title'), settings('server_name')]);
+        return view('front.auth.email');
     }
 
     /**

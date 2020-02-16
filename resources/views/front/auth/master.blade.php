@@ -27,6 +27,7 @@
 <script src="{{ asset( 'js/front/main.js' ) }}"></script>
 <script src="{{ asset( 'js/front/plugins.js' ) }}"></script>
 <script src="{{ asset( 'js/front/global.js' ) }}"></script>
+<script src="{{ asset('js/front/login.js') }}"></script>
 </body>
 
 </html>

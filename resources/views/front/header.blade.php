@@ -31,7 +31,12 @@
                     @if ( Auth::guest() )
                         <li>
                             <a href="{{ url( 'auth/login' ) }}">
-                                {{ trans( 'main.login_link' ) }}
+                                {{ trans( 'main.signin.title' ) }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url( 'auth/register' ) }}">
+                                {{ trans( 'main.signup.title' ) }}
                             </a>
                         </li>
                     @else
