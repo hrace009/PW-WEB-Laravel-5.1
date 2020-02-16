@@ -26,6 +26,7 @@ Route::get('character/select/{role_id}', 'Front\CharacterController@getSelect');
 
 // Password reset link request routes...
 Route::post('password/email', 'Auth\PasswordController@postEmail');
+Route::get('password/email', 'Auth\PasswordController@getEmail');
 
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');

@@ -98,6 +98,16 @@ class AuthController extends Controller
     }
 
     /**
+     * Show the application registration form.
+     *
+     * @return Response
+     */
+    public function getRegister()
+    {
+        return view('front.auth.register');
+    }
+
+    /**
      * Handle a registration request for the application.
      *
      * @param Request $request
