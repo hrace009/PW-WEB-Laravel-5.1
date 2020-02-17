@@ -17,9 +17,11 @@ Route::controller('auth', 'Auth\AuthController', [
     'getLogin' => 'auth.login',
 ]);
 
+/*
 Route::controller('auth', 'Auth\PasswordController', [
     'getEmail' => 'auth.forgot'
 ]);
+*/
 
 Route::get('account/settings', ['as' => 'account.settings', 'uses' => 'Front\AccountController@getSettings']);
 Route::post('account/settings/email', 'Front\AccountController@postEmail');
@@ -29,6 +31,7 @@ Route::post('account/settings/password', 'Front\AccountController@postPassword')
 Route::get('character/select/{role_id}', 'Front\CharacterController@getSelect');
 
 // Password reset link request routes...
+Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');
 
 // Password reset routes...

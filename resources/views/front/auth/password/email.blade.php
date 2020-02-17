@@ -5,8 +5,9 @@
         <p> {{ trans('main.forgot.info') }} </p>
         {!! csrf_field() !!}
         <div class="form-group">
-            <label class="control-label visible-ie8 visible-ie9">{{ trans( 'main.forgot.email' ) }}</label>
-            <input class="form-control placeholder-no-fix" type="text" placeholder="{{ trans( 'main.forgot.email' ) }}"
+            <label for="email" class="control-label visible-ie8 visible-ie9">{{ trans( 'main.forgot.email' ) }}</label>
+            <input id="email" class="form-control placeholder-no-fix" type="text"
+                   placeholder="{{ trans( 'main.forgot.email' ) }}"
                    name="email"/>
         </div>
         <div class="form-actions text-center">

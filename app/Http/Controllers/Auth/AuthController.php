@@ -167,15 +167,4 @@ class AuthController extends Controller
             'creatime' => Carbon::now(),
         ]);
     }
-
-    /**
-     * Display the form to request a password reset link.
-     *
-     * @return Response
-     */
-    public function getForgot()
-    {
-        pagetitle([trans('main.forgot.title'), settings('server_name')]);
-        return view('front.auth.email');
-    }
 }
